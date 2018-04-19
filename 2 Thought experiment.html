@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Experimentations</title>
+    <style>
+        img:hover {
+            cursor: pointer;
+        }
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+    <script>
+        var video;
+        window.onload = function () {
+            video = document.getElementById("sampleVideo");
+
+            var drawingSurface = document.getElementById("drawingSurface");
+            var ctxt = drawingSurface.getContext("2d");
+
+/*             ctxt.beginPath(); //Iniciar dibujo
+            ctxt.moveTo(10, 10);
+            ctxt.lineTo(225, 350);
+            ctxt.lineTo(300, 10);
+            ctxt.lineTo(400, 350);
+            ctxt.lineWidth = 5;
+            ctxt.strokeStyle = '#0f0';
+            ctxt.lineCap="round"//Puntas redondas
+            ctxt.stroke();//Ejecutar dibujo
+
+
+            ctxt.beginPath();
+            ctxt.arc(150,100,75,0,2 * Math.PI, false);
+            ctxt.lineWidth = 25;
+            ctxt.strokeStyle = '#0f0';
+            ctxt.stroke();
+
+            ctxt.beginPath();
+            ctxt.arc(450, 100, 75, 1.5 * Math.PI, 2 * Math.PI, false);
+            ctxt.lineWidth = 25;
+            ctxt.strokeStyle = 'blue';
+            ctxt.stroke();
+
+            ctxt.beginPath();
+            ctxt.arc(150, 300, 75, 1 * Math.PI, 1.5 * Math.PI, false);
+            ctxt.lineWidth = 25;
+            ctxt.strokeStyle = '#0ff';
+            ctxt.stroke();
+
+            ctxt.beginPath();
+            ctxt.arc(450, 300, 75, .5 * Math.PI, 1 * Math.PI, false);
+            ctxt.lineWidth = 25;
+            ctxt.strokeStyle = '#f00';
+            ctxt.stroke();
+
+            ctxt.beginPath();
+            ctxt.moveTo(10,380);
+            ctxt.quadraticCurveTo(300,-250,580,380);
+            ctxt.lineWidth = 25;
+            ctxt.strokeStyle = '#f00';
+            ctxt.stroke(); */
+
+            var drawingSurface = document.getElementById("drawingSurface");
+            var ctxt = drawingSurface.getContext("2d");
+            ctxt.strokeText("1. Text with default font", 100, 100);
+
+            ctxt.font = "24px arial";
+            ctxt.strokeStyle = "Red";
+            ctxt.strokeText("3. Text with altered colored font", 100, 160);
+
+            ctxt.font = "24px arial";
+            ctxt.fillStyle = "Red";
+            ctxt.fillText("4. Text with altered colored font", 100, 185);
+
+            ctxt.font = "24px arial";
+            ctxt.textAlign = "center";
+            ctxt.fillStyle = "Red";
+            ctxt.fillText("5. Text with altered colored font Centered.", drawingSurface.width/2,
+            drawingSurface.height/2);
+        }
+
+        function play() {
+            video.play();
+        }
+
+        function pause() {
+            video.pause();
+        }
+
+        function back() {
+            video.currentTime -= 10;
+        }
+
+        function Red(evt) {
+            var circle = evt.target;
+            circle.setAttribute("style", "fill: red");
+        }
+        function Green(evt) {
+            var circle = evt.target;
+            circle.setAttribute("style", "fill: green");
+        }
+    </script>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td colspan="3">
+                <div id="header">
+                    <h1>A Thoughtful Experiment</h1>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="">Home</a>
+                <a href="">Page 1</a>
+                <a href="">Page 2</a>
+                <a href="">Page 3</a>
+            </td>
+            <td>
+                <div id="content">
+                    <div id="anArticle">
+                        <h1>An Article regarding thought is presented here.</h1>
+                        <h2>Thought as a provoking element.</h2>
+                        .....................
+                        <div id="moreInfo">Here are some reference material.</div>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div id="profile">
+                    .....
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div id="footer">
+                    This page is copyright protected.
+                </div>
+            </td>
+        </tr>
+    </table>
+    <video src="samplevideo.mp4" controls poster="picture.jpg" height="400" width="600">
+    </video>
+    
+    <table>
+            <tr>
+                <td>
+                    <video height="400" width="600" id="sampleVideo">
+                        <source src="samplevideo.mp4" type="audio/mp4" />
+                    </video>
+                </td>
+                <td>
+                    <img id="backButton" src="backward.png" onclick="back();" />
+                    <br/>
+                    <img id="playButton" src="forward.png" onclick="play();" />
+                    <br/>
+                    <img id="PauseButton" src="pause.png" onclick="pause();" />
+                    <br/>
+                </td>
+            </tr>
+        </table>
+    <audio controls>
+        <source src="sample.mp3" type="audio/mp3"/>
+        <p>Your browser does not support HTML5 audio.</p>
+    </audio>
+
+    <h1>Canvas</h1>
+
+    <canvas id="drawingSurface" width="600" height="400">
+        Your browser does not support HTML5.
+    </canvas>
+
+    <h1>SVG</h1>
+    <svg>
+        <circle id="Circle" cx="50" cy="50" r="50" fill="green" onmouseover="Red(evt)"
+        onmouseout="Green(evt)"/>
+    </svg>
+
+    <svg>
+        <rect id="lightStandard" x="100" y="100" width="60" height="200" fill="black"/>
+        <circle id="redLight" cx="129" cy="145" r="25" fill="red"/>
+        <circle id="amberLight" cx="129" cy="205" r="25" fill="yellow"/>
+        <circle id="greenLight" cx="129" cy="265" r="25" fill="green"/>
+    </svg>
+</body>
+
+</html>

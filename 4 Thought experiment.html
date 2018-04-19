@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test</title>
+    <style>
+        img:hover {
+            cursor: pointer;
+        }
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+    <script>
+        var x = 100;
+        var y = 75;
+
+        window.onload = function () {            
+            
+            var drawingSurface = document.getElementById("drawingSurface");
+
+            //drawCircle();
+            var myVar = setInterval(drawCircle, 25);
+        }
+
+        function Red(evt) {
+            var circle = evt.target;
+            circle.setAttribute("style", "fill: red");
+        }
+
+        function Green(evt) {
+            var circle = evt.target;
+            circle.setAttribute("style", "fill: green");
+        }
+
+        function drawCircle(){
+            var ctxt = drawingSurface.getContext("2d");
+
+            ctxt.clearRect(0,0,drawingSurface.width, drawingSurface.height)
+
+            ctxt.beginPath();
+            ctxt.arc(x,y,50,0,2*Math.PI);
+            ctxt.strokeStyle = "Red";
+            ctxt.fillStyle = "Red";
+            ctxt.fill();
+            ctxt.stroke(); 
+            x++;
+            //y++;           
+        }
+    </script>
+</head>
+<body>
+    <h1>Canvas</h1>
+
+    <canvas id="drawingSurface" width="600" heigth="600">
+        Your browser does not support HTML5.
+    </canvas>
+
+</body>
+</html>
