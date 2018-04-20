@@ -5,7 +5,48 @@
     <title></title>
 </head>
 <script>
-    ...
+        window.onload = function () {
+
+            document.getElementById("Question1").onclick = function () {
+               
+                if(this.querySelector('input[name="answer"]:checked').checked && this.querySelector('input[name="answer"]:checked').value == "Yes"){
+                    document.getElementById("Question2").hidden=false
+                    document.getElementById("Question3").hidden=true
+                } else{
+                    document.getElementById("Question3").hidden=false
+                    document.getElementById("Question2").hidden=true
+                };              
+
+                for (var i = 4; i <= 10; i++){
+                    document.getElementById("Question"+i).hidden=true;
+                }
+            }
+
+            document.getElementById("Question2").onclick = function () {
+               
+               if(this.querySelector('input[name="answer"]:checked').checked && this.querySelector('input[name="answer"]:checked').value == "Yes"){
+                   document.getElementById("Question4").hidden=false
+                   document.getElementById("Question5").hidden=true
+               } else{
+                   document.getElementById("Question5").hidden=false
+                   document.getElementById("Question4").hidden=true
+               }; 
+           }
+        
+
+           document.getElementById("Question3").onclick = function () {
+               
+               if(this.querySelector('input[name="answer"]:checked').checked && this.querySelector('input[name="answer"]:checked').value == "Yes"){
+                   document.getElementById("Question6").hidden=false
+               } else{
+                   document.getElementById("Question6").hidden=false
+               }; 
+           }
+
+            for (var i = 2; i <= 10; i++){
+                document.getElementById("Question"+i).hidden=true;
+            }
+        }
 </script>
 
 <body>
@@ -20,34 +61,50 @@
                 </h2>
             </hgroup>
             <div id="Question1">
-                1. ....
+               <h4>Question1</h4>
+                <input type="radio" name="answer" value="Yes"> Male<br>
+                <input type="radio" name="answer" value="No"> Female<br>
             </div>
             <div id="Question2">
-                2. ....
+                <h4>Question2</h4>
+                <input type="radio" name="answer" value="Yes"> Male<br>
+                <input type="radio" name="answer" value="No"> Female<br>
             </div>
             <div id="Question3">
-                3. ....
+                <h4>Question3</h4>
+                <input type="radio" name="answer" value="Yes"> Male<br>
+                <input type="radio" name="answer" value="No"> Female<br>
             </div>
             <div id="Question4">
-                4. ....
+                <h4>Question4</h4>
+                <input type="radio" name="answer" value="Yes"> Male<br>
+                <input type="radio" name="answer" value="No"> Female<br>
             </div>
             <div id="Question5">
-                5. ....
+                    <h4>Question5</h4>
+                <input type="radio" name="answer" value="Yes"> Male<br>
+                <input type="radio" name="answer" value="No"> Female<br>
             </div>
             <div id="Question6">
-                6. ....
+                <h4>Question6</h4>
+                <input type="radio" name="answer" value="Yes"> Male<br>
+                <input type="radio" name="answer" value="No"> Female<br>
             </div>
             <div id="Question7">
-                7. ....
+                <input type="radio" name="answer" value="Yes"> Male<br>
+                <input type="radio" name="answer" value="No"> Female<br>
             </div>
             <div id="Question8">
-                8. ....
+                <input type="radio" name="answer" value="Yes"> Male<br>
+                <input type="radio" name="answer" value="No"> Female<br>
             </div>
             <div id="Question9">
-                9. ....
+                <input type="radio" name="answer" value="Yes"> Male<br>
+                <input type="radio" name="answer" value="No"> Female<br>
             </div>
             <div id="Question10">
-                10. ....
+                <input type="radio" name="answer" value="Yes"> Male<br>
+                <input type="radio" name="answer" value="No"> Female<br>
             </div>
         </article>
     </section>
