@@ -1,0 +1,358 @@
+
+#set($Idioma = "en-US")
+#set($Rojo = "#FF0000")
+#set($Verde = "#006600")
+#set($LimiteInferiorCumplimiento=100)
+#set($LimiteInferiorTotal=0)
+
+#set($PorcentajeConfirmacion=$Resultado.Value(0,"CUMP_CONF_M2",$Idioma))
+#set($PorcentajeVentas=$Resultado.Value(0,"CUMP_VTAS_M2",$Idioma))
+#set($PorcentajeRetorno=$Resultado.Value(0,"RET",$Idioma))
+#set($PorcentajeContribucion=$Resultado.Value(0,"CONT",$Idioma))
+
+#if($PorcentajeConfirmacion<$LimiteInferiorCumplimiento)
+    #set($ColorConfirmacion=$Rojo)
+#else
+    #set($ColorConfirmacion=$Verde)
+#end
+
+#if($PorcentajeVentas<=$LimiteInferiorCumplimiento)
+    #set($ColorVentas=$Rojo)
+#else
+    #set($ColorVentas=$Verde)
+#end
+
+#if($PorcentajeRetorno<=$LimiteInferiorTotal)
+    #set($ColorRetorno=$Rojo)
+#else
+    #set($ColorRetorno=$Verde)
+#end
+
+#if($PorcentajeContribucion<=$LimiteInferiorTotal)
+    #set($ColorContribucion=$Rojo)
+#else
+    #set($ColorContribucion=$Verde)
+#end
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Papelsa</title>
+</head>
+
+<body>
+
+        <table width="830" border="0" cellspacing="0" style="margin:0 auto; padding:0">
+            <tr style="margin:0">
+                <td width="2" bgcolor="#00697a"></td>
+                <td width="470" bgcolor="#00697a"></td>
+                <td width="250" height="100" align="right" bgcolor="#00697a">
+                    <img src="logoEmpresa.png" width="200" height="68" />
+                </td>
+                <td width="2" height="100" bgcolor="#00697a"></td>
+            </tr>
+            <tr style="margin:0">
+                <td width="830" bgcolor="#3a4f63" colspan="4"></td>
+            </tr>
+            <tr>
+                <td bgcolor="#f8f8f8" width="5"></td>
+                <td colspan="2" bgcolor="#f8f8f8" width="830">
+                    <table width="820" border="1" cellspacing="0">
+                        <tr>
+                            <td><p style="color:#00697a; font-family:'Calibri'; text-align: center; font-size:12px;"> BACKLOG -&nbsp;  $Resultado.Value(0,"PLANTA") $Resultado.Value(0,"DIA")/$Resultado.Value(0,"MES")/$Resultado.Value(0,"AÑO")&nbsp;</p></td>
+                        </tr>
+                    </table>
+                    <table width="820" border="1" cellspacing="0">
+                        <tr>
+                            <td width="100">&nbsp;</td>
+                            <td width="100">
+                                <p style="color:#00697a; font-family:'Calibri'; text-align: center; font-size:12px;">
+                                    Dia
+                                    <br />
+                                    m2 (M)
+                                </p>
+                            </td>
+                            <td width="100">
+                                <p style="color:#00697a; font-family:'Calibri'; text-align: center; font-size:12px;">
+                                    Dia
+                                    <br />
+                                    Vlr (M)
+                                </p>
+                            </td>
+                            <td width="100">
+                                <p style="color:#00697a; font-family:'Calibri'; text-align: center; font-size:12px;">
+                                    &nbsp;Para
+                                    El Mes
+                                    <br />
+                                    m2 (M)
+                                </p>
+                            </td>
+                            <td width="100">
+                                <p style="color:#00697a; font-family:'Calibri'; text-align: center; font-size:12px;">
+                                    Mes<br />
+                                    m2 (M)
+                                </p>
+                            </td>
+                            <td width="100">
+                                <p style="color:#00697a; font-family:'Calibri'; text-align: center; font-size:12px;">
+                                    Mes<br />
+                                    Vlr (M)
+                                </p>
+                            </td>
+                            <td width="100">
+                                <p style="color:#00697a; font-family:'Calibri'; text-align: center; font-size:12px;">$/m2</p>
+                            </td>
+                            <td width="100">
+                                <p style="color:#00697a; font-family:'Calibri'; text-align: center; font-size:12px;">
+                                    Cumplim
+                                    <br />
+                                    (%)
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="100"><p style="color:#00697a; font-family:'Calibri'; font-size:12px;">ESTIMADO</p></td>
+                            <td width="100">
+                                <p style="color:#3a4f63; font-family:'Calibri';text-align: right; font-size:12px;">
+                                    &nbsp;
+                                </p>
+                            </td>
+                            <td width="100">
+                                <p style="color:#3a4f63; font-family:'Calibri';text-align: right; font-size:12px;">
+                                    &nbsp;
+                                </p>
+                            </td>
+                            <td width="100">
+                                <p style="color:#3a4f63; font-family:'Calibri';text-align: right; font-size:12px;">
+                                    &nbsp;
+                                </p>
+                            </td>
+                            <td width="100"><p style="color:#3a4f63; font-family:'Calibri';text-align: right; font-size:12px;">$Resultado.Value(0,"ESTIMADO_m2(M)")&nbsp;</p> </td>
+                            <td width="100">
+                                <p style="color:#3a4f63; font-family:'Calibri';text-align: right; font-size:12px;">
+                                    &nbsp;
+                                </p>
+                            </td>
+                            <td width="100"><p style="color:#3a4f63; font-family:'Calibri';text-align: right; font-size:12px;">$Resultado.Value(0,"ESTIMADO_Vlr_m2(M)")&nbsp;</p> </td>
+                            <td width="100">
+                                <p style="color:#3a4f63; font-family:'Calibri';text-align: right; font-size:12px;">
+                                    &nbsp;
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="100"><p style="color:#00697a; font-family:'Calibri'; font-size:12px;">CONFIRMACIONES</p></td>
+                            <td width="100"><p style="color:#3a4f63; font-family:'Calibri';text-align: right; font-size:12px;">$Resultado.Value(0,"CO_Dia_m2(M)")&nbsp;</p> </td>
+                            <td width="100"><p style="color:#3a4f63; font-family:'Calibri';text-align: right; font-size:12px;">$Resultado.Value(0,"CO_Dia_Vlr(M)")&nbsp;</p> </td>
+                            <td width="100"><p style="color:#3a4f63; font-family:'Calibri';text-align: right; font-size:12px;">$Resultado.Value(0,"CO_Dia_para_Mes_m2(M)")&nbsp;</p> </td>
+                            <td width="100"><p style="color:#3a4f63; font-family:'Calibri';text-align: right; font-size:12px;">$Resultado.Value(0,"CO_Mes_m2(M)")&nbsp;</p> </td>
+                            <td width="100"><p style="color:#3a4f63; font-family:'Calibri';text-align: right; font-size:12px;">$Resultado.Value(0,"CO_Mes_Vlr(M)")&nbsp;</p> </td>
+                            <td width="100"><p style="color:#3a4f63; font-family:'Calibri';text-align: right; font-size:12px;">$Resultado.Value(0,"CO_Vlr_m2(M)")&nbsp;</p> </td>
+                            <td width="100"><p style="color:$ColorConfirmacion; font-family:'Calibri';text-align: right; font-size:12px;">$Resultado.Value(0,"CUMP_CONF_M2")&nbsp;</p> </td>
+                        </tr>
+                        <tr>
+                            <td width="100"><p style="color:#00697a; font-family:'Calibri'; font-size:12px;">VENTAS</p></td>
+                            <td width="100"><p style="color:#3a4f63; font-family:'Calibri';text-align: right; font-size:12px;">$Resultado.Value(0,"VT_Dia_m2(M)")&nbsp;</p> </td>
+                            <td width="100"><p style="color:#3a4f63; font-family:'Calibri';text-align: right; font-size:12px;">$Resultado.Value(0,"VT_Dia_Vlr(M)")&nbsp;</p> </td>
+                            <td width="100">
+                                <p style="color:#3a4f63; font-family:'Calibri';text-align: right;">
+                                    &nbsp;
+                                </p>
+                            </td>
+                            <td width="100"><p style="color:#3a4f63; font-family:'Calibri';text-align: right; font-size:12px;">$Resultado.Value(0,"VT_Mes_m2(M)")&nbsp;</p> </td>
+                            <td width="100"><p style="color:#3a4f63; font-family:'Calibri';text-align: right; font-size:12px;">$Resultado.Value(0,"VT_Mes_Vlr(M)")&nbsp;</p> </td>
+                            <td width="100"><p style="color:#3a4f63; font-family:'Calibri';text-align: right; font-size:12px;">$Resultado.Value(0,"VT_Vlr_M2")&nbsp;</p> </td>
+                            <td width="100"><p style="color:$ColorVentas; font-family:'Calibri';text-align: right; font-size:12px;">$Resultado.Value(0,"CUMP_VTAS_M2")&nbsp;</p> </td>
+                        </tr>
+                        <tr>
+                            <td width="100">&nbsp;</td>
+                            <td width="100">&nbsp;</td>
+                            <td width="100">&nbsp;</td>
+                            <td width="100">&nbsp;</td>
+                            <td width="100">&nbsp;</td>
+                            <td width="100">&nbsp;</td>
+                            <td width="100">&nbsp;</td>
+                            <td width="100">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td width="100"><p style="color:#00697a; font-family:'Calibri'; font-size:12px;">PLANEAMIENTO</p></td>
+                            <td width="100"><p style="color:#3a4f63; font-family:'Calibri';text-align: right; font-size:12px;">$Resultado.Value(0,"PN_Dia_m2(M)")&nbsp;</p> </td>
+                            <td width="100">
+                                <p style="color:#3a4f63; font-family:'Calibri';text-align: right;">
+                                    &nbsp;
+                                </p>
+                            </td>
+                            <td width="100">
+                                <p style="color:#3a4f63; font-family:'Calibri';text-align: right;">
+                                    &nbsp;
+                                </p>
+                            </td>
+                            <td width="100"><p style="color:#3a4f63; font-family:'Calibri';text-align: right; font-size:12px;">$Resultado.Value(0,"PN_Mes_m2(M)")&nbsp;</p> </td>
+                            <td width="100">
+                                <p style="color:#3a4f63; font-family:'Calibri';text-align: right;">
+                                    &nbsp;
+                                </p>
+                            </td>
+                            <td width="100">
+                                <p style="color:#3a4f63; font-family:'Calibri';text-align: right;">
+                                    &nbsp;
+                                </p>
+                            </td>
+                            <td width="100">
+                                <p style="color:#3a4f63; font-family:'Calibri';text-align: right;">
+                                    &nbsp;
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="100"><p style="color:#00697a; font-family:'Calibri'; font-size:12px;">PRODUCCION</p></td>
+                            <td width="100"><p style="color:#3a4f63; font-family:'Calibri';text-align: right; font-size:12px;">$Resultado.Value(0,"PD_Dia_m2(M)")&nbsp;</p> </td>
+                            <td width="100">
+                                <p style="color:#3a4f63; font-family:'Calibri';text-align: right;">
+                                    &nbsp;
+                                </p>
+                            </td>
+                            <td width="100">
+                                <p style="color:#3a4f63; font-family:'Calibri';text-align: right;">
+                                    &nbsp;
+                                </p>
+                            </td>
+                            <td width="100"><p style="color:#3a4f63; font-family:'Calibri';text-align: right; font-size:12px;">$Resultado.Value(0,"PD_Mes_m2(M)")&nbsp;</p> </td>
+                            <td width="100">
+                                <p style="color:#3a4f63; font-family:'Calibri';text-align: right;">
+                                    &nbsp;
+                                </p>
+                            </td>
+                            <td width="100">
+                                <p style="color:#3a4f63; font-family:'Calibri';text-align: right;">
+                                    &nbsp;
+                                </p>
+                            </td>
+                            <td width="100">
+                                <p style="color:#3a4f63; font-family:'Calibri';text-align: right;">
+                                    &nbsp;
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="100">&nbsp;</td>
+                            <td width="100">&nbsp;</td>
+                            <td width="100">&nbsp;</td>
+                            <td width="100">&nbsp;</td>
+                            <td width="100">&nbsp;</td>
+                            <td width="100">&nbsp;</td>
+                            <td width="100">&nbsp;</td>
+                            <td width="100">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td width="100">
+                                <p style="color:#00697a; font-family:'Calibri'; font-size:12px;">
+                                    &nbsp;
+                                </p>
+                            </td>
+                            <td width="100">
+                                <p style="color:#3a4f63; font-family:'Calibri';text-align: right;">
+                                    &nbsp;
+                                </p>
+                            </td>
+                            <td width="100">
+                                <p style="color:#3a4f63; font-family:'Calibri';text-align: right;">
+                                    &nbsp;
+                                </p>
+                            </td>
+                            <td width="100">
+                                <p style="color:#3a4f63; font-family:'Calibri';text-align: right;">
+                                    &nbsp;
+                                </p>
+                            </td>
+                            <td width="100">
+                                <p style="color:#3a4f63; font-family:'Calibri';text-align: right;">
+                                    &nbsp;
+                                </p>
+                            </td>
+                            <td width="100">
+                                <p style="color:#3a4f63; font-family:'Calibri';text-align: right;">
+                                    &nbsp;
+                                </p>
+                            </td>
+                            <td width="100"><p style="color:#00697a; font-family:'Calibri'; text-align: right; font-size:12px;">RET (%)</p></td>
+                            <td width="100"><p style="color:$ColorRetorno; font-family:'Calibri'; text-align: right; font-size:12px;">$Resultado.Value(0,"RET")&nbsp;</p></td>
+                        </tr>
+                        <tr>
+                            <td width="100">
+                                <p style="color:#00697a; font-family:'Calibri'; font-size:12px;">
+                                    &nbsp;
+                                </p>
+                            </td>
+                            <td width="100">
+                                <p style="color:#3a4f63; font-family:'Calibri';text-align: right;">
+                                    &nbsp;
+                                </p>
+                            </td>
+                            <td width="100">
+                                <p style="color:#3a4f63; font-family:'Calibri';text-align: right;">
+                                    &nbsp;
+                                </p>
+                            </td>
+                            <td width="100">
+                                <p style="color:#3a4f63; font-family:'Calibri';text-align: right;">
+                                    &nbsp;
+                                </p>
+                            </td>
+                            <td width="100">
+                                <p style="color:#3a4f63; font-family:'Calibri';text-align: right;">
+                                    &nbsp;
+                                </p>
+                            </td>
+                            <td width="100">
+                                <p style="color:#3a4f63; font-family:'Calibri';text-align: right;">
+                                    &nbsp;
+                                </p>
+                            </td>
+                            <td width="100"><p style="color:#00697a; font-family:'Calibri'; text-align: right; font-size:12px;">MG (M$)</p></td>
+                            <td width="100"><p style="color:#3a4f63; font-family:'Calibri'; text-align: right; font-size:12px;">$Resultado.Value(0,"MG(M)")&nbsp;</p></td>
+                        </tr>
+                        <tr>
+                            <td width="100">
+                                <p style="color:#00697a; font-family:'Calibri'; font-size:12px;">
+                                    &nbsp;
+                                </p>
+                            </td>
+                            <td width="100">
+                                <p style="color:#3a4f63; font-family:'Calibri';text-align: right;">
+                                    &nbsp;
+                                </p>
+                            </td>
+                            <td width="100">
+                                <p style="color:#3a4f63; font-family:'Calibri';text-align: right;">
+                                    &nbsp;
+                                </p>
+                            </td>
+                            <td width="100">
+                                <p style="color:#3a4f63; font-family:'Calibri';text-align: right;">
+                                    &nbsp;
+                                </p>
+                            </td>
+                            <td width="100">
+                                <p style="color:#3a4f63; font-family:'Calibri';text-align: right;">
+                                    &nbsp;
+                                </p>
+                            </td>
+                            <td width="100">
+                                <p style="color:#3a4f63; font-family:'Calibri';text-align: right;">
+                                    &nbsp;
+                                </p>
+                            </td>
+                            <td width="100"><p style="color:#00697a; font-family:'Calibri'; text-align: right; font-size:12px;">CON (%)</p></td>
+                            <td width="100"><p style="color:$ColorContribucion; font-family:'Calibri'; text-align: right; font-size:12px;">$Resultado.Value(0,"CONT")&nbsp;</p></td>
+                        </tr>
+                    </table>
+                </td>
+                <td bgcolor="#f8f8f8" width="2"></td>
+            </tr>
+        </table>
+
+</body>
+</html>
