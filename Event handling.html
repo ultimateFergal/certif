@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+    <p id="demo">Click button to see message</p>
+
+    <button onclick="sample()">Click me</button>
+
+    <script>
+        function sample() {
+
+            document.getElementById("demo").innerText = "Hello World";
+
+        }
+    </script>
+    Enter your text:
+    <input type="text" id="name" onblur="uppercase()">
+
+    <p>Convert the text to uppercase </p>
+
+    <script>
+        function uppercase() {
+
+            var x = document.getElementById("name");
+
+            x.value = x.value.toUpperCase();
+
+        }
+    </script>
+
+    Enter your text:
+    <input type="text" onfocus="colorchange(this)">
+
+    <p>changing Text colour</p>
+
+    <script>
+        function colorchange(x) {
+
+            x.style.background = "blue";
+
+        }
+    </script>
+
+    <p>Example of bubbling event.</p>
+
+    <button onclick="sample1(event)">Try it</button>
+
+    <p id="demo"></p>
+
+    <script>
+        function sample1(event) {
+
+            var x = event.bubbles;
+            console.log(event);
+            document.getElementById("demo").innerText = x;
+
+        }
+    </script>x
+
+</body>
+
+</html>
