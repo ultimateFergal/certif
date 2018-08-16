@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+        </style>
+    <script>
+        window.onload = function () {
+/*             var element = document.getElementById("outerDiv");
+            alert(element.innerHTML);
+            var paragraphs = document.getElementsByTagName("p");
+            alert(paragraphs.length);
+            var paragraphs = document.getElementsByClassName("subPara");
+            alert("<p> elements with class subPara: " + paragraphs.length);
+            console.log(document.querySelectorAll("p"));
+            console.log (document.querySelector("#outerDiv")); */
+
+            /* var element = document.getElementById("innerDiv");
+            alert(element.innerHTML);
+            document.removeChild(element);
+            var afterRemove = document.getElementById("innerDiv");
+            alert(afterRemove); */
+
+ /*            var outerDiv = document.getElementById("outerDiv");
+            var element = document.createElement("article");
+            element.innerText = "My new <article> element";
+            outerDiv.appendChild(element);
+
+            var element = document.getElementById("outerDiv")
+                .appendChild(document.createElement("article"));
+            element.innerText = "My new <article> element";
+
+            var element = document.getElementById("outerDiv").insertBefore(
+                document.createElement("article"),
+                document.getElementById("innerDiv"));
+            element.innerText = "My new <article> element";
+
+            var inner = document.getElementById("innerDiv");
+            var element = inner.insertBefore(document.createElement("article"),inner.firstChild);
+            element.innerText = "My new <article> element";
+
+            var innerDiv = document.getElementById("innerDiv");
+            var p = innerDiv.removeChild(document.getElementById("P1")); */
+            
+ /*            var innerDiv = document.getElementById("innerDiv");
+            innerDiv.removeNode(true); */
+
+            var innerDiv = document.getElementById("innerDiv");
+            var newDiv = document.createElement("div");
+            var outerDiv = document.getElementById("outerDiv")
+            for (var i = 0; i < innerDiv.childNodes.length; i++) {
+                var anchor = newDiv.appendChild(document.createElement("a"));
+                anchor.setAttribute("href", "http://www.bing.ca");
+                anchor.text = innerDiv.childNodes[i].textContent;
+                newDiv.appendChild(document.createElement("br"));
+            }
+            //innerDiv.replaceNode(newDiv);
+            //innerDiv.appendChild(newDiv)
+            outerDiv.replaceChild(newDiv, innerDiv)
+
+
+            var drawingSurface = document.getElementById("drawingSurface");
+            var ctxt = drawingSurface.getContext("2d");
+
+
+/*             ctxt.beginPath();
+            ctxt.moveTo(10, 10);
+            ctxt.lineTo(225, 350);
+            ctxt.stroke();
+
+            ctxt.beginPath();
+            ctxt.moveTo(10, 10);
+            ctxt.lineTo(225, 350);
+            ctxt.lineTo(300, 10);
+            ctxt.lineTo(400, 350);
+            ctxt.stroke();
+
+
+            ctxt.beginPath();
+            ctxt.arc(150,100,75,0,2 * Math.PI, false);
+            ctxt.lineWidth = 25;
+            ctxt.strokeStyle = '#0f0';
+            ctxt.stroke();
+            ctxt.beginPath();
+            ctxt.arc(450, 100, 75, 1.5 * Math.PI, 2 * Math.PI, false);
+            ctxt.lineWidth = 25;
+            ctxt.strokeStyle = 'blue';
+            ctxt.stroke();
+            ctxt.beginPath();
+            ctxt.arc(150, 300, 75, 1 * Math.PI, 1.5 * Math.PI, false);
+            ctxt.lineWidth = 25;
+            ctxt.strokeStyle = '#0ff';
+            ctxt.stroke();
+            ctxt.beginPath();
+            ctxt.arc(450, 300, 75, .5 * Math.PI, 1 * Math.PI, false);
+            ctxt.lineWidth = 25;
+            ctxt.strokeStyle = '#f00';
+            ctxt.stroke();
+
+            ctxt.beginPath();
+            ctxt.moveTo(10,380);
+            ctxt.quadraticCurveTo(300,-250,580,380);
+            ctxt.lineWidth = 25;
+            ctxt.strokeStyle = '#f00';
+            ctxt.stroke(); */
+
+/*             ctxt.beginPath();
+            ctxt.moveTo(125, 20);
+            ctxt.bezierCurveTo(0, 200, 300, 300, 50, 400);
+            ctxt.lineWidth = 5;
+            ctxt.strokeStyle = '#f00';
+            ctxt.stroke();
+
+
+            ctxt.beginPath();
+            ctxt.arc(300, 200, 75, 1.75 * Math.PI, 1.25 * Math.PI, false);
+            ctxt.lineTo(150, 125);
+            ctxt.quadraticCurveTo(300, 0, 450, 125);
+            ctxt.lineTo(353, 144);
+            ctxt.strokeStyle = "blue";
+            ctxt.lineCap = "round";
+            ctxt.lineWidth = 10;
+            ctxt.stroke();
+
+            ctxt.beginPath();
+            ctxt.rect(300, 200, 150, 75);
+            ctxt.stroke();
+
+            ctxt.beginPath();
+            var x, y;
+            x = 150;
+            y = 75;
+            ctxt.rect(300-(x/2), 200-(y/2), x, y);
+            ctxt.stroke();
+
+            ctxt.fillStyle = "blue";
+            ctxt.fill();
+
+            ctxt.fillStyle = "blue";
+            ctxt.fillRect(150-(x/2), 100-(y/2), x, y);
+
+            ctxt.beginPath();
+            ctxt.arc(300, 200, 75, 1.75 * Math.PI, 1.25 * Math.PI, false);
+            ctxt.lineTo(150, 125);
+            ctxt.quadraticCurveTo(300, 0, 450, 125);
+            ctxt.lineTo(353, 144);
+            ctxt.strokeStyle = "blue";
+            ctxt.lineCap = "round";
+            ctxt.lineWidth = 10;
+            ctxt.fillStyle = "Green";
+            ctxt.fill();
+            ctxt.stroke(); */
+
+/*             var ctxt = drawingSurface.getContext("2d");
+            ctxt.lineWidth = 3;
+            ctxt.rect(150, 150, 200, 125);
+            var gradient = ctxt.createLinearGradient(150, 150, 200, 125);
+            gradient.addColorStop(0, "Black");
+            gradient.addColorStop(0.5, "Gray");
+            gradient.addColorStop(1,"White");
+            ctxt.fillStyle = gradient;
+            ctxt.fill();
+            ctxt.stroke(); */
+
+
+/*             var ctxt = drawingSurface.getContext("2d");
+            ctxt.lineWidth = 3;
+            ctxt.rect(150, 150, 250, 175);
+            var gradient = ctxt.createRadialGradient(200, 200,5, 250, 250,100);
+            gradient.addColorStop(0, "Red");
+            gradient.addColorStop(.5, "Orange");
+            gradient.addColorStop(1, "Blue");
+            ctxt.fillStyle = gradient;
+            ctxt.fill();
+            ctxt.stroke(); */
+
+/*             var ctxt = drawingSurface.getContext("2d");
+            ctxt.lineWidth = 3;
+            ctxt.rect(150, 150, 200, 125);
+            var img = new Image();
+            img.src = "texture.png";
+            img.onload = function () {
+            var pat = ctxt.createPattern(img, "repeat");
+                ctxt.fillStyle = pat;
+                ctxt.fill();
+                ctxt.stroke();
+            } */
+
+            var drawingSurface = document.getElementById("drawingSurface");
+            var ctxt = drawingSurface.getContext("2d");
+            var img = new Image();
+            img.src = "picture.jpg";
+            img.onload = function () {
+            //ctxt.drawImage(img, 0, 0);
+            ctxt.drawImage(img, 0,0,img.width * .5, img.height * .5);
+            ctxt.stroke();
+            }
+        }
+        </script>
+</head>
+
+<body>
+    <div id="outerDiv">
+        <p class='mainPara'>Main Paragraph</p>
+        <ul>
+            <li>First List Item</li>
+            <li>Second List Item</li>
+            <li>Third List Item</li>
+            <li>Fourth List Item</li>
+        </ul>
+        <div id="innerDiv">
+            <p class='subPara' id='P1'>Paragraph 1</p>
+            <p class='subPara' id='P2'>Paragraph 2</p>
+            <p class='subPara' id='P3'>Paragraph 3</p>
+            <p class='subPara' id='P4'>Paragraph 4</p>
+        </div>
+        <table>
+            <tr>
+                <td>Row 1
+                </td>
+            </tr>
+            <tr>
+                <td>Row 2
+                </td>
+            </tr>
+            <tr>
+                <td>Row 3
+                </td>
+            </tr>
+            <tr>
+                <td>Row 4
+                </td>
+            </tr>
+            <tr>
+                <td>Row 5
+                </td>
+            </tr>
+        </table>
+        <input type="text" />
+        <input type="submit" value="Submit" />
+
+        <video src="samplevideo.mp4" controls poster="picture.jpg" height="400" width="600">
+        </video>
+
+        <canvas id="drawingSurface" width="600" height="400">
+            Your browser does not support HTML5.
+        </canvas>
+    </div>
+</body>
+
+</html>

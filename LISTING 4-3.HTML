@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #flexbox1 {
+            /*display: flexbox;*/
+            display: flex;
+            flex-direction: row-reverse;
+           
+            /* flex-pack: end; */
+            pack: end;
+            border: 1px solid black;
+            margin-top: 100px;
+            min-height: 15px;
+
+            /* items wrap */
+            /* flex-flow: row;
+            flex-wrap: wrap;
+            width: 200px; */
+            
+            /*
+            width: 200px;
+            flex-flow: row wrap;*/
+        }
+
+        #flexbox1>div {
+            min-width: 80px;
+            min-height: 80px;
+            border: 1px solid black;
+            margin: 5px;
+        }
+
+
+        /*         #flexbox1>div:nth-child(1) {
+            background-color: green;
+            flex: 2;
+        }
+
+        #flexbox1>div:nth-child(2) {
+            background-color: yellow;
+            flex: 15;
+        }
+
+        #flexbox1>div:nth-child(3) {
+            background-color: red;
+            flex: 3;
+        } */
+
+        #flexbox1>div:nth-child(1) {
+            background-color: green;
+            /* flex-order: 2; */
+            order: 2;
+        }
+
+        #flexbox1>div:nth-child(2) {
+            background-color: yellow;
+            /* flex-order: 1; */
+            order: 1;
+        }
+
+        #flexbox1>div:nth-child(3) {
+            background-color: red;
+            /* flex-order: 3; */
+            order: 3;
+        }
+
+        #flexbox1>div:nth-child(4) {
+            background-color: purple;
+        }
+
+        #flexbox1>div:nth-child(5) {
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="flexbox1">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</body>
+
+</html>

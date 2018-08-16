@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+
+    <style type="text/css">
+        #boxA,
+        #boxB {
+
+            float: left;
+            padding: 12px;
+            margin: 12px;
+            -moz-user-select: none;
+
+        }
+
+        #boxA {
+            background-color: #6644FF;
+            width: 70px;
+            height: 60px;
+        }
+
+        #boxB {
+            background-color: #FF7799;
+            width: 120px;
+            height: 120px;
+        }
+    </style>
+
+    <script type="text/javascript">
+
+        function dragStart(mov) {
+
+            mov.dataTransfer.effectAllowed = 'move';
+
+            mov.dataTransfer.setData("Text", event.target.getAttribute('id'));
+
+            mov.dataTransfer.setDragImage(event.target, 0, 0);
+
+            return true;
+
+        }
+
+        function dragEnter(mov) {
+
+            event.preventDefault();
+
+            return true;
+
+        }
+
+        function dragOver(mov) {
+
+            return false;
+
+        }
+
+        function dragDrop(mov) {
+
+            var src = event.dataTransfer.getData("Text");
+
+            event.target.appendChild(document.getElementById(src));
+
+            event.stopPropagation();
+
+            return false;
+
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <center>
+
+        <h2>Drag and drop HTML5 demo</h2>
+
+        <div>Try to move the Small box into the Big box.</div>
+
+        <div id="boxA" draggable="true" ondragstart="return dragStart(event)">
+
+            <p>Drag Me</p>
+
+        </div>
+
+        <div id="boxB" ondragenter="return dragEnter(event)" ondrop="return dragDrop(event)" ondragover="return dragOver(event)">Dustbin</div>
+
+    </center>
+
+</body>
+
+</html>

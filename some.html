@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        function WorkWithCanvas() {
+            try {
+                var canvas = document.getElementById("myCanvas");
+                var context = canvas.getContext("2d");
+                contxt.arc(50, 50, 25, 0, 360);
+                context.fillStyle = "blue";
+                context.fill();
+                context.strokeStyle = "red";
+                context.stroke();
+            } catch (e) {
+                console.log(e.message);
+                //handle the exception as appropriate
+                throw e;
+            } finally {
+            }
+        }
+
+        var ball = {
+            x: -1,
+            y: -1,
+            draw: function DrawBall(c) {
+                if (this.x < 0)
+                    throw new Error(25, "Invalid X coordinate");
+            }
+        }
+        window.onload = function () {
+            try {
+                var canvas = document.getElementById("myCanvas");
+                var context = canvas.getContext("2d");
+                ball.draw(context);
+            } catch (e) {
+                alert(e.message);
+            }
+        }
+    </script>
+</body>
+
+</html>

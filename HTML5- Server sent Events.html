@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+
+    <script type="text/javascript">
+
+        document.se("eventsource")[0].addEventListener("server-time", eventHandler, false);
+
+        function eventHandler(event) {
+
+            document.querySelector('#ticker')[removed] = event.data;
+
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <div id="sse">
+
+        <eventsource src="/cgi-bin/ticker.cgi" />
+
+    </div>
+
+    <div id="ticker" name="ticker">
+
+    </div>
+
+</body>
+
+</html>
